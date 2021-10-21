@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon's Projects</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div v-if="showDiv">
+            <h2>{{ title }}</h2>
+            <!-- v-on: is teh same as @ -->
+            <button @click="changeTitle('something new')">Change Data</button>
+        </div>
+        <button @click="toggleView">
+            <!-- v-if takes things out and in of the DOM -->
+            <span v-if="showDiv">Hide everything</span>
+            <span v-else>SHOW everything</span>
+        </button>
+        <!-- uses css display style to hsow and hide -->
+        <div v-show="showDiv">Things are showing!!</div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+
