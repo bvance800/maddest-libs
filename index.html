@@ -7,19 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <div v-if="showDiv">
-            <h2>{{ title }}</h2>
-            <!-- v-on: is teh same as @ -->
-            <button @click="changeTitle('something new')">Change Data</button>
+    <div id="app" >
+        <div id="content">
+            <h1 class="text-shadow mx-auto blue">{{ title }}</h1>
+            <div id="user-info" class="mx-auto">
+                <form  class="">
+                    <span v-for="label in input_fields">
+                        <label v-bind:for=label>{{label}}</label>
+                        <input type="text" v-bind:id="label" v-bind:name="label"><br><br>
+                    </span>
+                </form>
+            </div>
+            <button id="generate-btn" @click="generateMadLib()"><b>Generate Mad Lib</b></button>
+            <!-- v-on: is the same as @ -->
+            <!-- uses css display style to hsow and hide -->
+            <!-- <div v-show="showDiv">Things are showing!!</div> -->
+            <div id="mad-lib-wrap">
+                <div class="mad-lib notActive">
+                    <p>There once was a person named <span class="name-place generated-word">___</span>
+                        who really loved his <span class="noun-place generated-word">___</span>. 
+                        He would <span class="adverb-place generated-word">___</span> <span class="verb-place generated-word">___</span> with it all the time.
+                        It was really <span class="adjective-place generated-word">___</span>!</p>
+                </div>
+                <div class="mad-lib notActive">
+                    <p> <span class="name-place generated-word">___</span> loved to <span class="verb-place generated-word">___</span> with his best friends. 
+                        Together they would <span class="adverb-place generated-word">___</span> throw a <span class="adjective-place generated-word">___</span> <span class="noun-place generated-word">___</span> 
+                        as hard as they could into a wall.</p>
+                </div>
+                
+            </div>
         </div>
-        <button @click="toggleView">
-            <!-- v-if takes things out and in of the DOM -->
-            <span v-if="showDiv">Hide everything</span>
-            <span v-else>SHOW everything</span>
-        </button>
-        <!-- uses css display style to hsow and hide -->
-        <div v-show="showDiv">Things are showing!!</div>
     </div>
     <script src="app.js"></script>
 </body>

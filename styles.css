@@ -1,5 +1,105 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 html{
-    background-color: #495057;
-    color: #118ab2;
+    background-color: #FFC87E;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    max-width: 450px;
+    position: relative;
+    width: 100%;
+}
+
+#user-info form {display: table;}
+#user-info form  span {display: table-row;}
+#user-info  form span label { 
+    display: table-cell; 
+    padding-right: 10px;
+}
+#user-info  form span input { 
+    display: table-cell;  
+    background-color: #FDE0B8
+}
+
+#generate-btn{
+    background-color: #00BDFF;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    width: 230px;
+    align-self: center;
+}
+
+.generated-word{
+    color:#E10000;
+}
+
+.loading-gif{
+    max-width: 100%;
+    height: auto;
+}
+
+/* Utilties */
+.text-shadow{
+    text-shadow: 2px 2px #2D395B;
+}
+.blue{
+    color: #00BDFF;
+}
+
+.mx-auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notActive{
+    display: none;
+}
+
+/* Animations */
+
+.mad-lib{
+    position: absolute;
+}
+
+.mad-lib-enter{
+    animation: madlibSlideIn .25s ease-out;
+}
+
+.mad-lib-exit{
+    animation: madlibSlideOut .25s ease-out;
+    opacity: 0;
+}
+
+@keyframes madlibSlideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes madlibSlideOut {
+    from {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 }
